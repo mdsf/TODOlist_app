@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>TODOlist</title>
+</head>
+<body>
+
+<h1>TODOlist App</h1>
+<h2>Created by Moeid Shariff</h2>
+
+
+
+<p></p>
+
+<table border="1" style="margin:0 auto">
+	<tr>
+		<td><b> Action<b></td><td><b>How to<b></td><td><b>Results<b></td>
+	</tr>
+	
+	<tr>
+		<td>Add a task</td><td>type a string in the given text field</td><td>task added in the database</td>
+	</tr>
+
+	<tr>
+		<td>Delete a task</td><td>enter task name</td><td>task deleted from the database</td>
+	</tr>
+
+	<tr>
+		<td>View all tasks</td><td>click on the view task button</td><td>displays all the tasks in the database</td>
+	</tr>
+
+
+</table>
+
+<br/>
+
+<br> </br>
+
+<h1> Insert Into Database </h1>
+
+<p> TODOtask (String)    Date (1/1/2000)   &nbsp;    Time(5:30pm)</p>
+
+<form action="insert.php" method="GET">
+
+<input type="text" size="10px" name="Task" />
+<input type="text" size="10px" name="Date" />
+<input type="text" size="10px" name="Time" />
+
+<input type="submit" value="Insert" name="query"/>
+
+</form>
+
+<br> </br>
+
+
+<h1> Delete From Database </h1>
+
+<p> Task (Number 1,2,3 etc)   </p>
+
+<form action="delete.php" method="GET">
+
+<input type="text" size="10px" name="id" />
+
+<input type="submit" value="delete" name="query"/>
+
+</form>
+
+<br> </br>
+
+<h1> View Tasks </h1>
+<form action="view.php" method="GET">
+
+<input type="submit" value="view" name="table"/>  &nbsp; 
+
+</form>
+
+</body>
+</html>
