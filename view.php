@@ -10,7 +10,6 @@ if ($conn->connect_error) {
 } 
 
 //echo "Connected successfully";
-//creares variables called query that get the text data typed into the database in the index.html file
 
 $query0 = $_GET['table'];
 
@@ -18,38 +17,34 @@ $query0 = $_GET['table'];
 //echo $sql;
 
 $sql = "SELECT * FROM `schedule` WHERE 1";
-
 $result = $conn->query($sql);
-
 
 echo "<h1> TODO list </h1>";
 if ($result->num_rows > 0) {
-    // output data of each row
 
-$rows_count = $result->num_rows;
-echo '<table border="1">';
-//code taken from stackoverflow
-for($i=0; $i<$rows_count; $i++)
-{
-    echo '<tr>';
-    $row = $result->fetch_array();
-    for($r=0;$r<count($row)/2;$r++)
-    {
-        echo '<td>';
-        echo $row[$r];
-        echo '</td>';   
-    }
-    echo '</tr>';
-}
-echo '</table>';
-//code till here is from stackoverflow
+ echo '<table border="2">';
+ $a=$result->fetch_array();
+ //referenced this example http://www.dummies.com/programming/sql/how-to-use-html5-tables-for-sql-output/
+ //http://php.net/manual/en/control-structures.foreach.php
+foreach ($a as $col=>$value){
+   //echo "   <td> <b> $col</b></td> ";
+    echo"<b> &nbsp $col &nbsp</b>";
+  }
+
+foreach($result as $row){
+  echo " <tr> ";
+   foreach ($row as $data=>$value){
+   echo " <td>$value &nbsp</td> ";
+   } 
+   echo " </tr> ";
+  } 
+
+echo "</table>"; 
+
  
 } else {
     echo "0 results";
 }
-
-
-
 
 mysqli_close($conn);
 ?>
